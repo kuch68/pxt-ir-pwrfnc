@@ -1,9 +1,26 @@
+enum PWM_CMD {
+    PWM_FLT = 0,
+    PWM_FWD1 = 1,
+    PWM_FWD2 = 2,
+    PWM_FWD3 = 3,
+    PWM_FWD4 = 4,
+    PWM_FWD5 = 5,
+    PWM_FWD6 = 6,
+    PWM_FWD7 = 7,
+    PWM_BRK = 8,
+    PWM_REV7 = 9,
+    PWM_REV6 = 10,
+    PWM_REV5 = 11,
+    PWM_REV4 = 12,
+    PWM_REV3 = 13,
+    PWM_REV2 = 14,
+    PWM_REV1 = 15
+}
 
 /**
  * MakeCode Lego PowerFunctions IR Library see http://www.philohome.com/pf/LEGO_Power_Functions_RC_v120.pdf for more info Based on SuperCow's code (http://forum.arduino.cc/index.php?topic=38142.0)
  */
-// % weight=10 color=#9F79EE icon="\uf108"
-// block="Power Functions"
+//% weight=10 icon="\uf108" block="Power Functions"
 namespace PowerFunctions {
     let HALF_PERIOD = 13;
     let START_STOP = 1026;
@@ -26,8 +43,8 @@ namespace PowerFunctions {
      * Send PWM Command to PowerFunction Reciever
      * @param pwm command
      */
-    //% block
-    export function SinglePWM(pwm: number) {
+    //% block="send %pwm"
+    export function SinglePWM(pwm: PWM_CMD) {
         _nib1 = _toggle | _channel;
         _nib2 = SINGLE_OUTPUT | OUTPUT_RED;
         _nib3 = pwm;
